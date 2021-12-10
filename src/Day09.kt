@@ -1,5 +1,3 @@
-import java.awt.Point
-
 fun main() {
     fun part1(input: List<String>): Int {
         val asInts = input.map{ it.map(Character::getNumericValue) }
