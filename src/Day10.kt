@@ -25,11 +25,11 @@ fun main() {
                 if (character in listOf('(', '[', '{', '<'))
                     stack.push(character)
                 else {
-                    if (checkIsClosing(stack.first, character))
-                        stack.pop()
-                    else {
+                    if (stack.isEmpty() || !checkIsClosing(stack.first, character)) {
                         score += weights.getOrDefault(character, 0)
                         break
+                    } else {
+                        stack.pop()
                     }
                 }
             }
@@ -61,10 +61,10 @@ fun main() {
                 if (character in listOf('(', '[', '{', '<'))
                     stack.push(character)
                 else {
-                    if (checkIsClosing(stack.first, character))
-                        stack.pop()
-                    else
+                    if (stack.isEmpty() || !checkIsClosing(stack.first, character))
                         return@forEach
+                    else
+                        stack.pop()
                 }
             }
             var lineScore: Long = 0
