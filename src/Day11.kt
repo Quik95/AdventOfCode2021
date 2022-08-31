@@ -61,7 +61,7 @@ fun main() {
 
         val grid: Grid = input.map { it.map(Character::getNumericValue).toMutableList() }.toMutableList()
 
-        (1..STEP_COUNT).forEach { step(grid) }
+        (1..STEP_COUNT).forEach { _ -> step(grid) }
 
         return numberOfFlashes
     }
